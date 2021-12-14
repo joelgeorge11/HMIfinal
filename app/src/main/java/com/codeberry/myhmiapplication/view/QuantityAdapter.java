@@ -83,7 +83,6 @@ public class QuantityAdapter extends RecyclerView.Adapter {
 //                      ViewHolderTwo viewHolderTwo2=(ViewHolderTwo) holder;
 //                      viewHolderTwo2.decreaseBrightness.setEnabled(false);
 //                      viewHolderTwo2.increaseBrightness.setEnabled(false);
-                        mSettingsLineItem.get(1).setSettingValue(5);
                         Toast.makeText(context,"HI",Toast.LENGTH_SHORT).show();
                     }
                     else {
@@ -91,12 +90,6 @@ public class QuantityAdapter extends RecyclerView.Adapter {
                     }
                 }
             });
-        }
-        if(mSettingsLineItem.get(1).getSettingValue()==5){
-            notifyDataSetChanged();
-            ViewHolderTwo viewHolderTwo=(ViewHolderTwo) holder;
-            viewHolderTwo.increaseBrightness.setEnabled(true);
-            viewHolderTwo.decreaseBrightness.setEnabled(true);
         }
     }
 
