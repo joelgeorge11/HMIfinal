@@ -1,0 +1,5 @@
+include ':app', 'settingsinterfacemanager'
+
+
+include ':settingsinterfacemanager'
+project(':settingsinterfacemanager').projectDir = new File(settingsDir, '../SettingsService/settingsinterfacemanager')
