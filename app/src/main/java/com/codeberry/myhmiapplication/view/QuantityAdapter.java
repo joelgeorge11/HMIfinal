@@ -73,6 +73,18 @@ public class QuantityAdapter extends RecyclerView.Adapter {
             ViewHolderTwo viewHolderTwo = (ViewHolderTwo) holder;
             viewHolderTwo.displayBrightnessOptions.setText(mSettingsLineItem.get(position).getSettingName());
             viewHolderTwo.displayCurrentBrightness.setText(String.valueOf(mSettingsLineItem.get(position).getSettingValue()));
+            if(mSettingsLineItem.get(VIEW_TYPE_CHECKBOX).getSettingValue()==1){
+                viewHolderTwo.displayBrightnessOptions.setEnabled(true);
+                viewHolderTwo.decreaseBrightness.setEnabled(true);
+                viewHolderTwo.increaseBrightness.setEnabled(true);
+                viewHolderTwo.displayCurrentBrightness.setEnabled(true);
+            }
+            else {
+                viewHolderTwo.displayBrightnessOptions.setEnabled(false);
+                viewHolderTwo.decreaseBrightness.setEnabled(false);
+                viewHolderTwo.increaseBrightness.setEnabled(false);
+                viewHolderTwo.displayCurrentBrightness.setEnabled(false);
+            }
         }
         if(settingsId==THEME_MODE_MANUAL){
             final ViewHolderOne viewHolderOne1=(ViewHolderOne) holder;
@@ -80,13 +92,12 @@ public class QuantityAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                     if(compoundButton.isChecked()){
-//                      ViewHolderTwo viewHolderTwo2=(ViewHolderTwo) holder;
-//                      viewHolderTwo2.decreaseBrightness.setEnabled(false);
-//                      viewHolderTwo2.increaseBrightness.setEnabled(false);
-                        Toast.makeText(context,"HI",Toast.LENGTH_SHORT).show();
+                        mSettingsLineItem.get(VIEW_TYPE_CHECKBOX).setSettingValue(1);
+                        notifyDataSetChanged();
                     }
                     else {
-                        Toast.makeText(context,"HELLO",Toast.LENGTH_SHORT).show();
+                        mSettingsLineItem.get(VIEW_TYPE_CHECKBOX).setSettingValue(2);
+                        notifyDataSetChanged();
                     }
                 }
             });

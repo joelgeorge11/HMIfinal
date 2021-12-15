@@ -82,7 +82,7 @@ public class MainFragment extends Fragment implements IMainView {
 
     @Override
     public void loadFragment() {
-        Log.w("Joel","inside load fragment");
+
 
         FragmentManager fm=getActivity().getSupportFragmentManager();
         adapter=new FragmentAdapter(fm,getLifecycle());
